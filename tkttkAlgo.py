@@ -60,7 +60,7 @@ df['Management fee'] = df['Management fee'].apply(lambda x: "${:,.2f}".format(x)
 
 df = df[['Listing', 'Guest name', 'Start date', 'End date',  'Earnings', 'Cleaning fee', 'Tourist tax', 'Management fee']]
 
-with pd.ExcelWriter(f'TKTTK-A-{selected_month}/{selected_year}.xlsx', engine='openpyxl') as writer:
+with pd.ExcelWriter(f'TKTTK-A-{selected_month}-{selected_year}.xlsx', engine='openpyxl') as writer:
     
     df.to_excel(writer, sheet_name='Global', index=False)
 
