@@ -19,11 +19,12 @@ cleaning_fee_dict = {
     'Bliss on the Bay': 150,
     'Paradise Cove': 300,
     'The Coral Cottage Inn': 140,
-    'Dolphin': 180,
+    'Dolphin Den': 180,
     'The Purple Pelican Inn': 120,
     'The Lazy Turtle Inn': 140,
     'Bayside Relaxing Home': 180,
-    'Hot Tub': 160
+    'HotTub Hideaway': 160,
+    'Ocean Oasis': 0
 }
 
 df['Listing'] = df['Listing'].replace(replacement_dict, regex=True)
@@ -59,7 +60,7 @@ df['Management fee'] = df['Management fee'].apply(lambda x: "${:,.2f}".format(x)
 
 df = df[['Listing', 'Guest name', 'Start date', 'End date',  'Earnings', 'Cleaning fee', 'Tourist tax', 'Management fee']]
 
-with pd.ExcelWriter(f'TKTTK-AB-{selected_month}.xlsx', engine='openpyxl') as writer:
+with pd.ExcelWriter(f'TKTTK-A-{selected_month}/{selected_year}.xlsx', engine='openpyxl') as writer:
     
     df.to_excel(writer, sheet_name='Global', index=False)
 
