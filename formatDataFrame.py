@@ -35,8 +35,8 @@ def formatDataFrame(dataFrame, selected_month, selected_year):
     filteredDataFrame['Tourist tax'] = (filteredDataFrame['Earnings']) * 0.05
 
     # Add columns for sales tax and VRBO fee for VRBO bookings
-    filteredDataFrame['Sales tax'] = filteredDataFrame.apply(lambda row: row['Earnings'] * 0.075 if row['Platform'] == 'VRBO' else 0, axis=1)
-    filteredDataFrame['VRBO fee'] = filteredDataFrame.apply(lambda row: row['Earnings'] * 0.05 if row['Platform'] == 'VRBO' else 0, axis=1)
+    filteredDataFrame['Sales tax'] = filteredDataFrame.apply(lambda row: row['Earnings'] * 0.05 if row['Platform'] == 'VRBO' else 0, axis=1)
+    filteredDataFrame['VRBO fee'] = filteredDataFrame.apply(lambda row: row['Earnings'] * 0.075 if row['Platform'] == 'VRBO' else 0, axis=1)
 
     filteredDataFrame['Total after fees'] = filteredDataFrame['Earnings'] - (filteredDataFrame['Cleaning fee'] + filteredDataFrame['Tourist tax'] + filteredDataFrame['Sales tax'] + filteredDataFrame['VRBO fee'])
     filteredDataFrame['Management fee'] = filteredDataFrame['Total after fees'] * 0.18

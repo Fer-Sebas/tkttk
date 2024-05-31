@@ -1,6 +1,6 @@
 cleaning_fee_dict = {
     'Barefoot Bungalow': 160,
-    'Beach Heaven': 200,
+    'Beach Heaven': 250,
     'Bliss on the Bay': 150,
     'Paradise Cove': 300,
     'The Coral Cottage Inn': 140,
@@ -9,5 +9,6 @@ cleaning_fee_dict = {
     'The Lazy Turtle Inn': 140,
     'Bayside Relaxing Home': 180,
     'HotTub Hideaway': 160,
-    'Ocean Oasis': 0
+    'Ocean Oasis': 0,
+    'Bikini Bottom': 500
 }
