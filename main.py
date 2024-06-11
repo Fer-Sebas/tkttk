@@ -11,7 +11,7 @@ client = authenticate_google_sheets()
 # month = int(input("Enter the desired month (as a number): "))
 # year = int(input("Enter the desired year: "))
 
-month = 5
+month = 6
 year = 2024
 
 dataFrame1 = extractAirbnbReservations('reservations.csv')

@@ -8,5 +8,6 @@ replacement_dict = {
     r'Dolphin Den-Pool-Boat Ramp-BBQ': 'Dolphin Den',
     r'HotTub Hideaway! PoolTable& More': 'HotTub Hideaway',
     r'Bayside Relaxing Home-BBQ-Pool\+': 'Bayside Relaxing Home',
-    r'Bikini Bottom-Luxury Water Front': "Bikini Bottom"
+    r'Bikini Bottom-Luxury Water Front': 'Bikini Bottom',
+    r'The Lazy Turtle Inn \+ Beach &amp; Pool': 'The Lazy Turtle Inn'
 }
