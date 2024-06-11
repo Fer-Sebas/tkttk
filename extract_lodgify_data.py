@@ -5,7 +5,7 @@ column_mapping = {
     'DateDeparture': 'End date',
     'Name': 'Guest name',
     'HouseName': 'Listing',
-    'AmountPaid': 'Earnings',
+    'TotalAmount': 'Earnings',
     'SourceText': 'Platform',
 }
 

@@ -41,16 +41,6 @@ def formatDataFrame(dataFrame, selected_month, selected_year):
     filteredDataFrame['Total after fees'] = filteredDataFrame['Earnings'] - (filteredDataFrame['Cleaning fee'] + filteredDataFrame['Tourist tax'] + filteredDataFrame['Sales tax'] + filteredDataFrame['VRBO fee'])
     filteredDataFrame['Management fee'] = filteredDataFrame['Total after fees'] * 0.18
 
-    # Format monetary columns
-    filteredDataFrame['Earnings'] = filteredDataFrame['Earnings'].apply(lambda x: "${:,.2f}".format(x))
-    filteredDataFrame['Cleaning fee'] = filteredDataFrame['Cleaning fee'].apply(lambda x: "${:,.2f}".format(x))
-    filteredDataFrame['Tourist tax'] = filteredDataFrame['Tourist tax'].apply(lambda x: "${:,.2f}".format(x))
-    filteredDataFrame['Total after fees'] = filteredDataFrame['Total after fees'].apply(lambda x: "${:,.2f}".format(x))
-    filteredDataFrame['Management fee'] = filteredDataFrame['Management fee'].apply(lambda x: "${:,.2f}".format(x))
-    filteredDataFrame['Sales tax'] = filteredDataFrame['Sales tax'].apply(lambda x: "${:,.2f}".format(x))
-    filteredDataFrame['VRBO fee'] = filteredDataFrame['VRBO fee'].apply(lambda x: "${:,.2f}".format(x))
-
-
     filteredDataFrame = filteredDataFrame.sort_values(by=['Listing', 'Start date'])
 
     # Select columns for the final DataFrame
