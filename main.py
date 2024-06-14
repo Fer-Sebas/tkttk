@@ -21,10 +21,10 @@ def main():
         
         # Extract data
         logging.info("Extracting Airbnb reservations...")
-        dataFrame1 = extractAirbnbReservations('reservations.csv')
+        dataFrame1 = extractAirbnbReservations('input/reservations.csv')
         
         logging.info("Extracting Lodgify reservations...")
-        dataFrame2 = extractLodgifyReservations('reservations_lodgify.csv')
+        dataFrame2 = extractLodgifyReservations('input/reservations_lodgify.csv')
         
         # Concatenate data
         jointDataFrame = pd.concat([dataFrame1, dataFrame2], ignore_index=True)
