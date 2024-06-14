@@ -1,10 +1,10 @@
 import pandas as pd
 import logging
 from config.google_sheets_auth import authenticate_google_sheets
-from formatDataFrame import formatDataFrame
-from extract_airbnb_data import extractAirbnbReservations
-from extract_lodgify_data import extractLodgifyReservations
-from push_to_google_sheets import push_to_google_sheets
+from formatting.formatDataFrame import formatDataFrame
+from extraction.extract_airbnb_data import extractAirbnbReservations
+from extraction.extract_lodgify_data import extractLodgifyReservations
+from delivery.push_to_google_sheets import push_to_google_sheets
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
