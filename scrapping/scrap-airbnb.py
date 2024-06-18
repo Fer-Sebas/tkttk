@@ -5,6 +5,8 @@ from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import shutil
+import os
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -87,16 +89,21 @@ try:
     driver.find_element(By.XPATH, '/html/body/div[8]/div/div/section/div/div/div[2]/div/div/div[1]/div/div/div/span/button').click()
     driver.find_element(By.XPATH, '/html/body/div[9]/div/div/section/div/div/div[2]/div/footer/a').click()
 
-    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "~/Downloads/reservations.csv")))
-
     logger.info("All reservations exported")
+
+    WebDriverWait(driver, 20)
+
+    source_path = os.path.expanduser('~/Downloads/reservations.csv')
+    destination_path = os.path.expanduser('~/tkttk/input/reservations.csv')
+
+    shutil.copy2(source_path, destination_path)
+    print(f"File copied from {source_path} to {destination_path}")
+
+    os.remove(source_path)
+    print(f"File deleted from {source_path}")
 
 finally:
     # Close the browser
     logger.info("Closing the browser.")
     driver.quit()
     logger.info('Done')
-
-https://www.lodgify.com/oh/PropertyOwner/QuoteReport?filter=eyJQcm9wZXJ0eU93bmVySWQiOjAsIlVucmVwbGllZCI6ZmFsc2UsIlVucmVhZCI6ZmFsc2UsIlRyYXNoIjpmYWxzZSwiT3ZlcmR1ZSI6ZmFsc2UsIkJvb2tpbmdTdGF0dXNlcyI6W10sIlF1b3RlU3RhdHVzZXMiOltdLCJCb29raW5nU291cmNlc1NlY3Rpb24iOnsiSXNJbnZlcnNlZCI6ZmFsc2UsIlNvdXJjZXNDb250YWlucyI6W10sIlNvdXJjZXNOb3RDb250YWlucyI6WyJPSCIsIk1hbnVhbCIsIkFpcmJuYiIsIkFpcmJuYkludGVncmF0aW9uIiwiQm9va2luZ0NvbSIsIkV4cGVkaWEiLCJIb21lQXdheSIsIkd2ciJdLCJJc0VtcHR5Ijp0cnVlfSwiUm9vbVR5cGVzIjpbXSwiUHJvcGVydGllcyI6W10sIlNlYXJjaFRleHQiOiIiLCJDb3VudCI6ODB9
-
-https://www.lodgify.com/oh/PropertyOwner/QuoteReport?filter=eyJQcm9wZXJ0eU93bmVySWQiOjAsIkRhdGVTZWN0aW9uIjp7IlR5cGUiOiJSYW5nZSIsIlN0YXJ0RGF0ZSI6IjIwMjQtMDYtMDFUMDA6MDA6MDAiLCJFbmREYXRlIjoiMjAyNC0wNi0zMFQwMDowMDowMCIsIkNoZWNrSW4iOnRydWUsIkNoZWNrT3V0Ijp0cnVlLCJTdGF5Ijp0cnVlLCJJc1ZhbGlkIjp0cnVlfSwiVW5yZXBsaWVkIjpmYWxzZSwiVW5yZWFkIjpmYWxzZSwiVHJhc2giOmZhbHNlLCJPdmVyZHVlIjpmYWxzZSwiQm9va2luZ1N0YXR1c2VzIjpbIkJvb2tlZCIsIk9wZW4iLCJUZW50YXRpdmUiXSwiUXVvdGVTdGF0dXNlcyI6WyJBZ3JlZWQiLCJOb3RTZW50IiwiUGVuZGluZ0Zvck93bmVyIiwiUGVuZGluZ0Zvckd1ZXN0IiwiUGVuZGluZ0ZvclBheW1lbnQiLCJSZWplY3RlZCIsIk5vbmUiXSwiQm9va2luZ1NvdXJjZXNTZWN0aW9uIjp7IklzSW52ZXJzZWQiOnRydWUsIlNvdXJjZXNDb250YWlucyI6WyJCb29raW5nQ29tIiwiRXhwZWRpYSIsIkhvbWVBd2F5IiwiTWFudWFsIiwiT0giXSwiU291cmNlc05vdENvbnRhaW5zIjpbIkFpcmJuYiIsIkFpcmJuYkludGVncmF0aW9uIiwiR3ZyIl0sIklzRW1wdHkiOmZhbHNlfSwiUm9vbVR5cGVzIjpbXSwiUHJvcGVydGllcyI6W10sIlNlYXJjaFRleHQiOiIiLCJDb3VudCI6ODB9
