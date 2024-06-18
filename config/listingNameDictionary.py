@@ -1,4 +1,5 @@
 replacement_dict = {
+    r'Scube Shack[\s]*\*New\*[\s]*Private Beach-Pool-BBQ-Marina': 'Scube Shack',
     r'Beach Heaven[\s-]*Private Beach,?[\s]*Pool': 'Beach Heaven',
     r'Ocean Oasis!OceanView[\s-]*Beach/Pool': 'Ocean Oasis',
     r'Ocean Oasis!OceanView[\s-]*Private Beach/Pool/TikiHuts': 'Ocean Oasis',
@@ -10,5 +11,5 @@ replacement_dict = {
     r'HotTub Hideaway! PoolTable& More': 'HotTub Hideaway',
     r'Bayside Relaxing Home-BBQ-Pool\+': 'Bayside Relaxing Home',
     r'Bikini Bottom-Luxury Water Front': 'Bikini Bottom',
-    r'The Lazy Turtle Inn \+ Beach &amp; Pool': 'The Lazy Turtle Inn'
+    r'The Lazy Turtle Inn \+ Beach &amp; Pool': 'The Lazy Turtle Inn',
 }

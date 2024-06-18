@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 # Firefox options
 options = Options()
 # Uncomment the next line to run Firefox in headless mode
-# options.headless = True
+options.headless = True
 
 # Path to the GeckoDriver (no need to specify if it's in the PATH)
 service = Service('/usr/bin/geckodriver')
