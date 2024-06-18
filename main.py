@@ -5,19 +5,25 @@ from formatting.formatDataFrame import formatDataFrame
 from extraction.extract_airbnb_data import extractAirbnbReservations
 from extraction.extract_lodgify_data import extractLodgifyReservations
 from delivery.push_to_google_sheets import push_to_google_sheets
+from input.fetch_lodgify import fetch_and_write_lodgify_data
+from input.scrap_airbnb import scrapeAirbnb
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 
 def main():
     try:
+
         # Authenticate Google Sheets client
         client = authenticate_google_sheets()
         logging.info("Google Sheets client authenticated successfully.")
         
         # Get month and year from user input
-        month = int(input("Enter the desired month (as a number): "))
-        year = int(input("Enter the desired year: "))
+        month = int(input("Enter the desired month (MM): "))
+        year = int(input("Enter the desired year (YYYY): "))
+
+        fetch_and_write_lodgify_data(year, month)
+        scrapeAirbnb()
         
         # Extract data
         logging.info("Extracting Airbnb reservations...")
