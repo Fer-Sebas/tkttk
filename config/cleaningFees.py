@@ -11,5 +11,5 @@ cleaning_fee_dict = {
     'HotTub Hideaway': 160,
     'Ocean Oasis': 170,
     'Bikini Bottom': 500,
-    'Scube Shack': 0
+    'Scube Shack': 160
 }
